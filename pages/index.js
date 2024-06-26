@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="bg-primary/60 h-full">
       {/* text */}
-      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
+      <div className="w-full h-full relative bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
         <div className="text-center flex flex-col justify-center xl:pt-40 xl:text-left h-full container mx-auto">
           {/* title */}
           <motion.h1 
@@ -68,7 +68,7 @@ const Home = () => {
           animate="show"
           exit="hidden"
           transition={{duration: 1,ease: 'easeInOut'}}
-          className="w-full h-full max-w-[524px] absolute -bottom-[30%] xl:right-[15%]">
+          className="w-full h-full max-w-[424px] absolute -bottom-[30%] xl:right-[12%]">
           <Avatar />
         </motion.div>
       </div>
