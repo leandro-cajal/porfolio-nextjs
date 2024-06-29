@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //components
 import ParticlesContainer from '../components/ParticlesContainer';
-import projectsBtn from '../components/ProjectsBtn';
+import ProjectsBtn from '../components/ProjectsBtn';
 import Avatar from '../components/Avatar';
 
 //framer Motion
@@ -11,8 +11,6 @@ import { motion } from "framer-motion";
 
 //variants
 import { fadeIn } from '../variants'
-import ProjectsBtn from "../components/ProjectsBtn";
-import Particles from "react-tsparticles";
 
 const Home = () => {
   return (
@@ -68,7 +66,8 @@ const Home = () => {
           animate="show"
           exit="hidden"
           transition={{duration: 1,ease: 'easeInOut'}}
-          className="w-full h-full max-w-[424px] absolute -bottom-[30%] xl:right-[12%]">
+          className="w-full h-full max-w-[424px] absolute -bottom-[30%] xl:right-[12%]"
+        >
           <Avatar />
         </motion.div>
       </div>

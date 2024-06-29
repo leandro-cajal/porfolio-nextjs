@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 
 // icons
 import {
@@ -6,7 +6,6 @@ import {
   FaCss3,
   FaJs,
   FaReact,
-  FaWordpress,
   FaFigma,
 } from "react-icons/fa";
 
@@ -15,10 +14,10 @@ import {
   SiFramer,
   SiAdobexd,
   SiAdobephotoshop,
+  SiTailwindcss,
 } from "react-icons/si";
 
-
-//  data
+// about data
 const aboutData = [
   {
     title: 'skills',
@@ -32,12 +31,16 @@ const aboutData = [
           <FaReact />,
           <SiNextdotjs />,
           <SiFramer />,
-          <FaWordpress />,
+          <SiTailwindcss />
         ],
       },
       {
         title: 'UI/UX Design',
-        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+        icons: [
+          <FaFigma />,
+          <SiAdobexd />,
+          <SiAdobephotoshop />,
+        ],
       },
     ],
   },
@@ -90,8 +93,94 @@ const aboutData = [
   },
 ];
 
+// components
+import Avatar from '../../components/Avatar';
+import Circles from '../../components/Circles';
+
+// framer motion
+import { motion } from 'framer-motion';
+import { fadeIn } from '../../variants';
+
+// counter
+import CountUp from 'react-countup';
+
 const About = () => {
-  return <div>About</div>;
+  const [index, setIndex] = useState(0);
+
+  return (
+    <div className='h-full bg-primary/10 py-32 text-center xl:text-left'>
+      <Circles />
+      {/* avatar img */}
+      <motion.div
+        variants={fadeIn('right', 0.2)}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        className='hidden xl:flex absolute -bottom-[5%] -left-80'>
+        <div className='w-[550px]'>
+          <Avatar />
+        </div>
+      </motion.div>
+      <div className='container mx-auto h-full w-full flex flex-col items-center xl:flex-row gap-x-6'>
+        <div className='flex-1 flex flex-col justify-center'>
+          <h2 className='h2'>
+            Captivating <span className='text-accent'>stories</span> birth magnificent desings.</h2>
+          <p className='max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0'>10 years ago, I began freelancing as a developer</p>
+          {/* counters */}
+          <div className=''>
+            {/* experience */}
+            <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
+              <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
+                <CountUp start={0} end={250} duration={8} />
+              </div>
+              <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Satisfied clients</div>
+            </div>
+            
+            <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
+              <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
+                <CountUp start={0} end={10} duration={8} /> +
+              </div>
+              <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Years of experience</div>
+            </div>
+          </div>
+        </div>
+        {/* info */}
+        <div className='flex flex-col w-full xl:max-w-[48%] h-[480px]'>
+          <div className='flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4 z-20 relative'>
+            {aboutData.map((item, itemIndex) => (
+              <div
+                key={itemIndex}
+                className={`cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:absolute after:-bottom-1 after:left-0 ${index === itemIndex ? "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-500" : "after:bg-white"}`}
+                onClick={() => setIndex(itemIndex)}
+              >
+                {item.title}
+              </div>
+            ))}
+          </div>
+          <div className='py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start'>
+            {aboutData[index].info.map((item, itemIndex) => {
+              return (
+                <div key={itemIndex} className='flex-1 flex flex-col'>
+                  {/* title */}
+                  <div className='font-light mb-2 md:mb-0'>{item.title}</div>
+                  <div className='hidden md:flex'>-</div>
+                  <div>{item.stage}</div>
+                  <div className='flex gap-x-4'>
+                    {/* icons */}
+                    {item.icons?.map((icon, iconIndex) => {
+                      return (
+                      <div key={iconIndex} className='text-2xl'>{icon}</div>
+                      )}
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default About;
