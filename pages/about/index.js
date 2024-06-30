@@ -11,9 +11,6 @@ import {
 
 import {
   SiNextdotjs,
-  SiFramer,
-  SiAdobexd,
-  SiAdobephotoshop,
   SiTailwindcss,
 } from "react-icons/si";
 
@@ -30,7 +27,6 @@ const aboutData = [
           <FaJs />,
           <FaReact />,
           <SiNextdotjs />,
-          <SiFramer />,
           <SiTailwindcss />
         ],
       },
@@ -38,8 +34,6 @@ const aboutData = [
         title: 'UI/UX Design',
         icons: [
           <FaFigma />,
-          <SiAdobexd />,
-          <SiAdobephotoshop />,
         ],
       },
     ],
@@ -116,7 +110,7 @@ const About = () => {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className='hidden xl:flex absolute -bottom-[5%] -left-80'>
+        className='hidden xl:flex absolute -bottom-[5%] -left-[300px]'>
         <div className=' w-[550px]'>
           <Avatar />
         </div>
@@ -147,21 +141,21 @@ const About = () => {
               {/* experience */}
               <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
                 <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={2} duration={8} /> +
+                  <CountUp start={0} end={2} duration={16} /> +
                 </div>
                 <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Years of experience</div>
               </div>
               {/* projects */}
               <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
                 <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={12} duration={4} />
+                  <CountUp start={0} end={12} duration={8} />
                 </div>
                 <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Finished projects</div>
               </div>
               {/* clients */}
               <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
                 <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={6} duration={6} />
+                  <CountUp start={0} end={6} duration={12} />
                 </div>
                 <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Satisfied clients</div>
               </div>
