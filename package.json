@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.4.0",
     "@next/font": "^13.4.4",
     "framer-motion": "^10.12.16",
     "next": "13.4.3",
