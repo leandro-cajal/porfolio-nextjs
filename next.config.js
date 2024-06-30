@@ -6,6 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  output: 'export',
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
@@ -22,3 +23,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
