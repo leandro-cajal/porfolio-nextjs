@@ -8,7 +8,6 @@ import {
   FaReact,
   FaFigma,
 } from "react-icons/fa";
-
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -22,18 +21,18 @@ const aboutData = [
       {
         title: 'Web Development',
         icons: [
-          <FaHtml5 />,
-          <FaCss3 />,
-          <FaJs />,
-          <FaReact />,
-          <SiNextdotjs />,
-          <SiTailwindcss />
+          <FaHtml5 key="FaHtml5" />,
+          <FaCss3 key="FaCss3" />,
+          <FaJs key="FaJs" />,
+          <FaReact key="FaReact" />,
+          <SiNextdotjs key="SiNextdotjs" />,
+          <SiTailwindcss key="SiTailwindcss" />
         ],
       },
       {
         title: 'UI/UX Design',
         icons: [
-          <FaFigma />,
+          <FaFigma key="FaFigma" />,
         ],
       },
     ],
@@ -123,7 +122,7 @@ const About = () => {
             animate="show"
             exit="hidden"
             className='h2'>
-            Captivating <span className='text-accent'>stories</span> birth magnificent desings.</motion.h2>
+            Captivating <span className='text-accent'>stories</span> birth magnificent designs.</motion.h2>
           <motion.p
             variants={fadeIn('right', 0.4)}
             initial="hidden"
@@ -131,7 +130,7 @@ const About = () => {
             exit="hidden"
             className='max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0'>2 years ago, I began freelancing as a developer</motion.p>
           {/* counters */}
-          <motion.div 
+          <motion.div
             variants={fadeIn('right', 0.6)}
             initial="hidden"
             animate="show"
@@ -163,7 +162,7 @@ const About = () => {
           </motion.div>
         </div>
         {/* info */}
-        <motion.div 
+        <motion.div
           variants={fadeIn('left', 0.4)}
           initial="hidden"
           animate="show"
@@ -181,25 +180,20 @@ const About = () => {
             ))}
           </div>
           <div className='py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start'>
-            {aboutData[index].info.map((item, itemIndex) => {
-              return (
-                <div key={itemIndex} className='flex-1 flex flex-col'>
-                  {/* title */}
-                  <div className='font-light mb-2 md:mb-0'>{item.title}</div>
-                  <div className='hidden md:flex'>-</div>
-                  <div>{item.stage}</div>
-                  <div className='flex gap-x-4'>
-                    {/* icons */}
-                    {item.icons?.map((icon, iconIndex) => {
-                      return (
-                        <div key={iconIndex} className='text-2xl'>{icon}</div>
-                      )
-                    }
-                    )}
-                  </div>
+            {aboutData[index].info.map((item, itemIndex) => (
+              <div key={itemIndex} className='flex-1 flex flex-col'>
+                {/* title */}
+                <div className='font-light mb-2 md:mb-0'>{item.title}</div>
+                <div className='hidden md:flex'>-</div>
+                <div>{item.stage}</div>
+                <div className='flex gap-x-4'>
+                  {/* icons */}
+                  {item.icons?.map((icon, iconIndex) => (
+                    <div key={iconIndex} className='text-2xl'>{icon}</div>
+                  ))}
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
