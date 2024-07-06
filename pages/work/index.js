@@ -32,7 +32,7 @@ const Work = () => {
               animate='show'
               exit='hidden'
               className='mb-4 max-w-[400px] mx-auto lg:mx-0'>
-              Here are some of the web projects I've developed, showcasing my skills in creating responsive and dynamic user interfaces.
+              Here are some of the web projects I&apos;ve developed, showcasing my skills in creating responsive and dynamic user interfaces.
             </motion.p>
           </div>
           <motion.div
