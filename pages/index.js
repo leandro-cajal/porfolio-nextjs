@@ -33,7 +33,7 @@ const Home = () => {
             animate="show"
             exit="hidden"
             className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16">
-            As a front-end developer, I am driven by a passion for technology and a commitment to continuous learning. I love solving problems and transforming ideas into engaging digital realities, ensuring every project offers a seamless and intuitive user experience.          </motion.p>
+            As a Front-End developer, I am driven by a passion for technology and a commitment to continuous learning. I love solving problems and transforming ideas into engaging digital realities, ensuring every project offers a seamless and intuitive user experience.          </motion.p>
           {/* btn */}
           <div className="flex justify-center xl:hidden relative">
             <ProjectsBtn />
