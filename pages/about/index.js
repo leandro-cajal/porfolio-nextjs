@@ -38,49 +38,43 @@ const aboutData = [
     ],
   },
   {
-    title: 'awards',
-    info: [
-      {
-        title: 'Webby Awards - Honoree',
-        stage: '2011 - 2012',
-      },
-      {
-        title: 'Adobe Design Achievement Awards - Finalist',
-        stage: '2009 - 2010',
-      },
-    ],
-  },
-  {
-    title: 'experience',
-    info: [
-      {
-        title: 'UX/UI Designer - XYZ Company',
-        stage: '2012 - 2023',
-      },
-      {
-        title: 'Web Developer - ABC Agency',
-        stage: '2010 - 2012',
-      },
-      {
-        title: 'Intern - DEF Corporation',
-        stage: '2008 - 2010',
-      },
-    ],
-  },
-  {
     title: 'credentials',
     info: [
       {
-        title: 'Web Development - ABC University, LA, CA',
-        stage: '2011',
+        title: 'React Js Course - Coderhouse',
+        stage: 'Issued Feb. 2024 · Expires Apr. 2024',
+        credentialId: '6636c9cfeb5a276e94f95c91',
+        skills: ['React.js'],
       },
       {
-        title: 'Computer Science Diploma - AV Technical Institute',
-        stage: '2009',
+        title: 'JavaScript Course - Coderhouse',
+        stage: 'Issued Nov. 2023 · Expires Jan. 2024',
+        credentialId: '65cd0b88c3b3ca21f27c49a9',
+        skills: ['JavaScript'],
       },
       {
-        title: 'Certified Graphic Designer - ABC Institute, Los Angeles, CA',
-        stage: '2006',
+        title: 'Frontend Development Career React - Coderhouse',
+        stage: 'Issued Aug. 2023 · Expires Apr. 2024',
+        credentialId: 'undefined',
+        skills: [],
+      },
+      {
+        title: 'Web Development Course - Coderhouse',
+        stage: 'Issued Aug. 2023 · Expires Oct. 2023',
+        credentialId: '6548efa0c908ff795f4b5d3b',
+        skills: ['HTML5', 'Git', 'GitHub', 'CSS', 'JavaScript'],
+      },
+    ],
+  },{
+    title: 'awards',
+    info: [
+      {
+        title: 'Top 10 in JavaScript Course - Coderhouse',
+        stage: '2023',
+      },
+      {
+        title: 'Top 10 in React Course - Coderhouse',
+        stage: '2024',
       },
     ],
   },
@@ -183,9 +177,9 @@ const About = () => {
             {aboutData[index].info.map((item, itemIndex) => (
               <div key={itemIndex} className='flex-1 flex flex-col'>
                 {/* title */}
-                <div className='font-light mb-2 md:mb-0'>{item.title}</div>
+                <div className='font-semibold text-lg mb-2 md:mb-0'>{item.title}</div>
                 <div className='hidden md:flex'>-</div>
-                <div>{item.stage}</div>
+                <div className='text-sm'>{item.stage}</div>
                 <div className='flex gap-x-4'>
                   {/* icons */}
                   {item.icons?.map((icon, iconIndex) => (
