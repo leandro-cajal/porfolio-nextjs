@@ -1,17 +1,19 @@
-//components
+// components
 import ParticlesContainer from '../components/ParticlesContainer';
 import ProjectsBtn from '../components/ProjectsBtn';
 import Avatar from '../components/Avatar';
 
-//framer Motion
+// framer Motion
 import { motion } from "framer-motion";
 
-//variants
+// variants
 import { fadeIn } from '../variants'
+
 
 const Home = () => {
   return (
     <div className="bg-primary/60 h-full">
+
       {/* text */}
       <div className="w-full h-full relative bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
         <div className="text-center flex flex-col justify-center xl:pt-40 xl:text-left h-full container mx-auto">
@@ -33,7 +35,8 @@ const Home = () => {
             animate="show"
             exit="hidden"
             className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16">
-            As a Front-End developer, I am driven by a passion for technology and a commitment to continuous learning. I love solving problems and transforming ideas into engaging digital realities, ensuring every project offers a seamless and intuitive user experience.          </motion.p>
+            As a Front-End developer, I am driven by a passion for technology and a commitment to continuous learning. I love solving problems and transforming ideas into engaging digital realities, ensuring every project offers a seamless and intuitive user experience.
+          </motion.p>
           {/* btn */}
           <div className="flex justify-center xl:hidden relative">
             <ProjectsBtn />
@@ -62,7 +65,7 @@ const Home = () => {
           animate="show"
           exit="hidden"
           transition={{ duration: 1, ease: 'easeInOut' }}
-          className="w-full h-full max-w-[424px] absolute -bottom-[40%] xl:right-[20%]"
+          className="w-full h-full max-w-[350px] absolute -bottom-[42%] xl:right-[15%]"
         >
           <Avatar />
         </motion.div>
