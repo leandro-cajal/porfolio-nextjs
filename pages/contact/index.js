@@ -129,7 +129,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className='input relative'
                 />
-                {errors.name && <span className="text-red-500 absolute bottom-2 right-2 font-light text-sm">{errors.name}</span>}
+                {errors.name && <span className="text-red-500 absolute -top-5 right-2 font-light text-sm">{errors.name}</span>}
               </div>
               <div className='relative w-full'>
                 <input
@@ -140,7 +140,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className='input relative'
                 />
-                {errors.email && <span className="text-red-500 absolute bottom-2 right-2 font-light text-sm">{errors.email}</span>}
+                {errors.email && <span className="text-red-500 absolute -top-5 right-2 font-light text-sm">{errors.email}</span>}
               </div>
             </div>
             <div className='relative w-full'>
@@ -152,7 +152,7 @@ const Contact = () => {
                 onChange={handleChange}
                 className='input relative'
               />
-              {errors.subject && <span className="text-red-500 absolute bottom-2 right-2 font-light text-sm">{errors.subject}</span>}
+              {errors.subject && <span className="text-red-500 absolute -top-5 right-2 font-light text-sm">{errors.subject}</span>}
             </div>
             <div className='w-full relative'>
               <textarea
@@ -162,7 +162,7 @@ const Contact = () => {
                 onChange={handleChange}
                 className='textarea relative'
               />
-              {errors.message && <span className="text-red-500 absolute bottom-4 right-2 font-light text-sm">{errors.message}</span>}
+              {errors.message && <span className="text-red-500 absolute -top-5 right-2 font-light text-sm">{errors.message}</span>}
             </div>
             <button type='submit' className='btn relative rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 items-center justify-center overflow-hidden hover:border-accent group'>
               <span className='absolute z-10 group-hover:opacity-0 opacity-100 group-hover:translate-y-[200%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500'>Let&apos;s talk</span>
