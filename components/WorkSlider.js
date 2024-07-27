@@ -52,6 +52,11 @@ const workSlides = {
   ],
 };
 
+import dynamic from 'next/dynamic';
+
+const Swiper = dynamic(() => import('swiper/react').then(mod => mod.Swiper), { ssr: false });
+const SwiperSlide = dynamic(() => import('swiper/react').then(mod => mod.SwiperSlide), { ssr: false });
+
 // import swiper react components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
