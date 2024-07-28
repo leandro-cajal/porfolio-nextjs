@@ -6,34 +6,58 @@ import { RiLinkedinLine, RiGithubLine, RiArrowDownSFill } from 'react-icons/ri';
 import { FaFileAlt } from 'react-icons/fa';
 import { BiWorld } from 'react-icons/bi';
 
+import LanguageContext from "../context/LanguageContext";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 const Socials = () => {
-  const [language, setLanguage] = useState("english");
+  const { selectedLanguage, changeLanguage } = useContext(LanguageContext);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
+  const handleButtonClick = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
 
-  return <div className="flex items-center gap-x-5 text-lg">
-    <Link target="_blank" href={'https://www.linkedin.com/in/leandro-javier-cajal-996899128/'} className="hover:text-accent text-xl transition-all duration-300" title="Linkedin">
-      <RiLinkedinLine />
-    </Link>
-    <Link target="_blank" href={'https://github.com/leandro-cajal'} className="hover:text-accent text-xl transition-all duration-300" title="Github">
-      <RiGithubLine />
-    </Link>
-    <Link href="/leandro-cajal-cv-en.pdf" target="_blank" className="hover:text-accent transition-all duration-300" title="CV">
-      <FaFileAlt />
-    </Link>
-    <div className="relative">
-      <button className="rounded-full flex gap-2 px-2 py-1 items-center bg-white/15 hover:text-accent text-2xl transition-all duration-300">
-        <BiWorld />
-        <span className="capitalize text-xs">{language}</span>
-        <RiArrowDownSFill />
-      </button>
-      <ul className="absolute flex items-center flex-col space-y-6 bg-white/15 rounded-md p-4 text-xs w-full top-9 left-0">
-        <li className="hover:text-accent transition-all duration-300 cursor-pointer">English</li>
-        <li className="hover:text-accent transition-all duration-300 cursor-pointer">Español</li>
-      </ul>
+  const handleLanguageClick = (language) => {
+    changeLanguage(language);
+    setIsDropdownVisible(false);
+  };
+
+  return (
+    <div className="flex items-center gap-x-5 text-lg">
+      <Link target="_blank" href={'https://www.linkedin.com/in/leandro-javier-cajal-996899128/'} className="hover:text-accent text-xl transition-all duration-300" title="Linkedin">
+        <RiLinkedinLine />
+      </Link>
+      <Link target="_blank" href={'https://github.com/leandro-cajal'} className="hover:text-accent text-xl transition-all duration-300" title="Github">
+        <RiGithubLine />
+      </Link>
+      <Link href="/leandro-cajal-cv-en.pdf" target="_blank" className="hover:text-accent transition-all duration-300" title="CV">
+        <FaFileAlt />
+      </Link>
+      <div className="relative">
+        <button onClick={handleButtonClick} className="min-w-[128px] rounded-full justify-between flex px-2 py-1 items-center bg-white/15 hover:bg-accent text-2xl transition-all duration-300">
+          <BiWorld />
+          <span className="capitalize text-xs">{selectedLanguage}</span>
+          <RiArrowDownSFill />
+        </button>
+        {isDropdownVisible && (
+          <ul className="absolute grid grid-cols-1 bg-white/15 rounded-2xl divide-y divide-white/15 text-xs overflow-hidden w-full top-9 left-0">
+            <li
+              className="capitalize transition-all duration-300 cursor-pointer hover:bg-accent p-3"
+              onClick={() => handleLanguageClick('english')}
+            >
+              english
+            </li>
+            <li
+              className="capitalize transition-all duration-300 cursor-pointer p-3 hover:bg-accent"
+              onClick={() => handleLanguageClick('español')}
+            >
+              español
+            </li>
+          </ul>
+        )}
+      </div>
     </div>
-  </div>;
+  );
 };
 export default Socials;

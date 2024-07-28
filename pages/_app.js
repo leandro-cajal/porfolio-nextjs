@@ -10,20 +10,25 @@ import { useRouter } from 'next/router';
 // framer motion
 import { AnimatePresence, motion } from 'framer-motion';
 
+// 
+import { LanguageProvider } from '../context/LanguageContext';
+
 
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
 
   return (
-    <Layout >
-      <AnimatePresence mode='wait'>
-        <motion.div key={router.route} className='h-full'>
-          <Transition />
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
-    </Layout>
+    <LanguageProvider>
+      <Layout >
+        <AnimatePresence mode='wait'>
+          <motion.div key={router.route} className='h-full'>
+            <Transition />
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
+      </Layout>
+    </LanguageProvider>
   )
 }
 
