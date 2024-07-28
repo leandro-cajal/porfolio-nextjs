@@ -43,7 +43,7 @@ const Socials = () => {
           <RiArrowDownSFill />
         </button>
         {isDropdownVisible && (
-          <ul className="absolute grid grid-cols-1 bg-white/15 rounded-2xl divide-y divide-white/15 text-xs overflow-hidden w-full top-9 left-0">
+          <ul className="absolute grid grid-cols-1 backdrop-blur-lg bg-white/15 rounded-2xl divide-y divide-white/15 text-xs overflow-hidden w-full top-9 left-0">
             <li
               className="capitalize transition-all duration-300 cursor-pointer hover:bg-accent p-3"
               onClick={() => handleLanguageClick('english')}

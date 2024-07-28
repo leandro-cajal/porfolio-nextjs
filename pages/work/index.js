@@ -8,8 +8,15 @@ import Circles from '../../components/Circles';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../variants';
 
+// language context
+import { useContext } from 'react';
+import LanguageContext from '../../context/LanguageContext';
 
 const Work = () => {
+
+  const { selectedLanguage } = useContext(LanguageContext);
+
+
   return (
     <div className='h-full bg-primary/30 py-36 flex items-center'>
       <Circles />
@@ -24,7 +31,8 @@ const Work = () => {
               exit='hidden'
               className='h2 xl:mt-12'
             >
-              My work
+              {selectedLanguage === "english" ? "My work" : "Mi trabajo"}
+              
               <span className='text-accent'>.</span>
             </motion.h2>
             <motion.p
@@ -33,7 +41,8 @@ const Work = () => {
               animate='show'
               exit='hidden'
               className='mb-4 max-w-[400px] mx-auto lg:mx-0'>
-              Here are some of the web projects I&apos;ve developed, showcasing my skills in creating responsive and dynamic user interfaces.
+              {selectedLanguage === "english" ? "Here are some of the web projects I&apos;ve developed, showcasing my skills in creating responsive and dynamic user interfaces." : "Aquí tienes algunos de los proyectos web que he desarrollado, mostrando mis habilidades en la creación de interfaces de usuario responsivas y dinámicas."}
+              
             </motion.p>
           </div>
           <motion.div

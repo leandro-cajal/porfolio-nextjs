@@ -17,8 +17,15 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//language context
+import { useContext } from 'react';
+import LanguageContext from '../../context/LanguageContext';
+
 
 const Contact = () => {
+
+
+  const { selectedLanguage } = useContext(LanguageContext);
 
   const initialFields = {
     name: '',
@@ -33,10 +40,10 @@ const Contact = () => {
 
   const validate = () => {
     let tempErrors = {};
-    tempErrors.name = formData.name ? "" : "Name is required.";
-    tempErrors.email = formData.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]+$/) ? "" : "Email is not valid.";
-    tempErrors.subject = formData.subject ? "" : "Subject is required.";
-    tempErrors.message = formData.message ? "" : "Message is required.";
+    tempErrors.name = formData.name ? "" : (selectedLanguage === 'español' ? "El nombre es requerido." : "Name is required.");
+    tempErrors.email = formData.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]+$/) ? "" : (selectedLanguage === 'español' ? "El email no es válido." : "Email is not valid.");
+    tempErrors.subject = formData.subject ? "" : (selectedLanguage === 'español' ? "El asunto es requerido." : "Subject is required.");
+    tempErrors.message = formData.message ? "" : (selectedLanguage === 'español' ? "El mensaje es requerido." : "Message is required.");
     setErrors(tempErrors);
     return Object.values(tempErrors).every(x => x === "");
   };
@@ -46,26 +53,26 @@ const Contact = () => {
 
     // Copia el estado actual de formData
     const updatedFormData = { ...formData, [name]: value };
-    
+
     // Validar el campo que se está editando
     let updatedErrors = { ...errors };
     switch (name) {
       case 'name':
-        updatedErrors.name = value.trim() ? "" : "Name is required.";
+        updatedErrors.name = value.trim() ? "" : (selectedLanguage === 'español' ? "El nombre es requerido." : "Name is required.");
         break;
       case 'email':
-        updatedErrors.email = value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]+$/) ? "" : "Email is not valid.";
+        updatedErrors.email = value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]+$/) ? "" : (selectedLanguage === 'español' ? "El email no es válido." : "Email is not valid.");
         break;
       case 'subject':
-        updatedErrors.subject = value.trim() ? "" : "Subject is required.";
+        updatedErrors.subject = value.trim() ? "" : (selectedLanguage === 'español' ? "El asunto es requerido." : "Subject is required.");
         break;
       case 'message':
-        updatedErrors.message = value.trim() ? "" : "Message is required.";
+        updatedErrors.message = value.trim() ? "" : (selectedLanguage === 'español' ? "El mensaje es requerido." : "Message is required.");
         break;
       default:
         break;
     }
-    
+
     // Actualizar el estado con los nuevos datos del formulario y errores
     setFormData(updatedFormData);
     setErrors(updatedErrors);
@@ -83,15 +90,14 @@ const Contact = () => {
         )
         .then(
           (response) => {
-            toast.dark('Message sent!', {
+            toast.dark(selectedLanguage === 'españolpañol' ? '¡Mensaje enviado!' : 'Message sent!', {
               theme: 'dark',
-              
             });
             setFormData(initialFields); // Resetear los campos del formulario
             setErrors({ ...initialFields }); // Limpiar los errores
           },
           (error) => {
-            toast.error('Failed to send the message, please try again.');
+            toast.error(selectedLanguage === 'español' ? 'No se pudo enviar el mensaje, por favor intente de nuevo.' : 'Failed to send the message, please try again.');
           }
         );
     }
@@ -109,7 +115,7 @@ const Contact = () => {
             exit="hidden"
             transition={{ duration: 1, ease: 'easeInOut' }}
             className='h2 text-center mb-12'>
-            Let&apos;s <span className='text-accent'>connect.</span>
+            {selectedLanguage === 'español' ? 'Conectemos.' : 'Let\'s connect.'}
           </motion.h2>
           <motion.form
             variants={fadeIn('up', 0.2)}
@@ -123,7 +129,7 @@ const Contact = () => {
               <div className='relative w-full'>
                 <input
                   type='text'
-                  placeholder='Name'
+                  placeholder={selectedLanguage === 'español' ? 'Nombre' : 'Name'}
                   name='name'
                   value={formData.name}
                   onChange={handleChange}
@@ -134,7 +140,7 @@ const Contact = () => {
               <div className='relative w-full'>
                 <input
                   type='text'
-                  placeholder='Email'
+                  placeholder={selectedLanguage === 'español' ? 'Correo electrónico' : 'Email'}
                   name='email'
                   value={formData.email}
                   onChange={handleChange}
@@ -146,7 +152,7 @@ const Contact = () => {
             <div className='relative w-full'>
               <input
                 type='text'
-                placeholder='Subject'
+                placeholder={selectedLanguage === 'español' ? 'Asunto' : 'Subject'}
                 name='subject'
                 value={formData.subject}
                 onChange={handleChange}
@@ -156,7 +162,7 @@ const Contact = () => {
             </div>
             <div className='w-full relative'>
               <textarea
-                placeholder='Message'
+                placeholder={selectedLanguage === 'español' ? 'Mensaje' : 'Message'}
                 name='message'
                 value={formData.message}
                 onChange={handleChange}
@@ -165,7 +171,9 @@ const Contact = () => {
               {errors.message && <span className="text-red-500 absolute -top-5 right-2 font-light text-sm">{errors.message}</span>}
             </div>
             <button type='submit' className='btn relative rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 items-center justify-center overflow-hidden hover:border-accent group'>
-              <span className='absolute z-10 group-hover:opacity-0 opacity-100 group-hover:translate-y-[200%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500'>Let&apos;s talk</span>
+              <span className='absolute z-10 group-hover:opacity-0 opacity-100 group-hover:translate-y-[200%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500'>
+                {selectedLanguage === 'español' ? 'Hablemos' : 'Let\'s talk'}
+              </span>
               <BsArrowRight className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:translate-y-[65%] group-hover:opacity-100 transition-all duration-500 text-[22px]' />
             </button>
           </motion.form>

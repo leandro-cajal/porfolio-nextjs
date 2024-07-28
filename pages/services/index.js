@@ -7,8 +7,17 @@ import Circles from '../../components/Circles';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../variants'
 
+// language context
+import { useContext } from 'react';
+import LanguageContext from '../../context/LanguageContext';
+
 
 const Services = () => {
+
+  const { selectedLanguage } = useContext(LanguageContext);
+
+
+
   return (
     <div className='h-full bg-primary/30 py-36 flex items-center'>
       <Circles />
@@ -21,14 +30,14 @@ const Services = () => {
               initial='hidden'
               animate='show'
               exit='hidden'
-              className='h2 xl:mt-8'>My services<span className='text-accent'>.</span></motion.h2>
+              className='h2 xl:mt-8'>{selectedLanguage === "english" ? "My services" : "Mis Servicios"}<span className='text-accent'>.</span></motion.h2>
             <motion.p
               variants={fadeIn('up', 0.4)}
               initial='hidden'
               animate='show'
               exit='hidden'
               className='mb-4 max-w-[400px] mx-auto lg:mx-0'>
-              I specialize in creating responsive, dynamic user interfaces with the latest technologies. My services include web development and problem-solving for seamless digital experiences. Always learning.
+              {selectedLanguage === "english" ? "I specialize in creating responsive, dynamic user interfaces with the latest technologies. My services include web development and problem-solving for seamless digital experiences. Always learning." : "Me especializo en crear interfaces de usuario dinámicas y responsivas con las últimas tecnologías. Mis servicios incluyen desarrollo web y resolución de problemas para experiencias digitales sin interrupciones. Siempre aprendiendo."}
             </motion.p>
           </div>
           <motion.div

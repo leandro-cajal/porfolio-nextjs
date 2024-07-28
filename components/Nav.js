@@ -33,7 +33,7 @@ export const navData = [
   },
   {
     english: 'work',
-    español: 'trabajos',
+    español: 'trabajo',
     path: '/work',
     icon: <HiViewColumns />
   },
