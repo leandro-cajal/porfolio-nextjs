@@ -59,9 +59,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // import image from next
 import Image from 'next/image';
 
-// import swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper';

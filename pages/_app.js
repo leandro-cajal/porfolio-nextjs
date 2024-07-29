@@ -10,8 +10,13 @@ import { useRouter } from 'next/router';
 // framer motion
 import { AnimatePresence, motion } from 'framer-motion';
 
-// 
+// language context
 import { LanguageProvider } from '../context/LanguageContext';
+
+// import swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 function MyApp({ Component, pageProps }) {
