@@ -30,7 +30,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 
 
-
 // import required modules
 import { Navigation , Pagination } from 'swiper';
 

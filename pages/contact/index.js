@@ -90,7 +90,7 @@ const Contact = () => {
         )
         .then(
           (response) => {
-            toast.dark(selectedLanguage === 'españolpañol' ? '¡Mensaje enviado!' : 'Message sent!', {
+            toast.dark(selectedLanguage === 'english' ?'Message sent!' : '¡Mensaje enviado!'  , {
               theme: 'dark',
             });
             setFormData(initialFields); // Resetear los campos del formulario
