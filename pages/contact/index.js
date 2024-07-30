@@ -140,7 +140,7 @@ const Contact = () => {
               <div className='relative w-full'>
                 <input
                   type='text'
-                  placeholder={selectedLanguage === 'español' ? 'Correo electrónico' : 'Email'}
+                  placeholder='Email'
                   name='email'
                   value={formData.email}
                   onChange={handleChange}
