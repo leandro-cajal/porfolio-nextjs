@@ -33,7 +33,7 @@ const Socials = () => {
       <Link target="_blank" href='https://github.com/leandro-cajal' className="hover:text-accent text-xl transition-all duration-300" title="Github">
         <RiGithubLine />
       </Link>
-      <Link href={resumeLink} target="_blank" className="hover:text-accent transition-all duration-300" title="CV">
+      <Link href={resumeLink} target="_blank" className="hover:text-accent transition-all duration-300" title ={selectedLanguage === "español" ? "CV" : "Resume"}>
         <FaFileAlt />
       </Link>
       <div className="relative">
