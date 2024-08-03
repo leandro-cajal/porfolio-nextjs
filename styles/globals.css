@@ -18,6 +18,14 @@
   color: #f13024;
 }
 
+.avt{
+  mask-image: linear-gradient(
+    to right,
+    black 80%,
+    transparent
+  );
+}
+
 @layer base {
   body {
     @apply bg-secondary overflow-hidden leading-relaxed;
@@ -52,4 +60,5 @@
   .ToastContainer {
     @apply bg-transparent;
   }
+  
 }
