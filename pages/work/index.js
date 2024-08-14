@@ -41,7 +41,7 @@ const Work = () => {
               animate='show'
               exit='hidden'
               className='mb-4 max-w-[400px] mx-auto lg:mx-0'>
-              {selectedLanguage === "english" ? "Here are some of the web projects I&apos;ve developed, showcasing my skills in creating responsive and dynamic user interfaces." : "Aquí tienes algunos de los proyectos web que he desarrollado, mostrando mis habilidades en la creación de interfaces de usuario responsivas y dinámicas."}
+              {selectedLanguage === "english" ? "Here are some of the web projects I have developed, showcasing my skills in creating responsive and dynamic user interfaces." : "Aquí tienes algunos de los proyectos web que he desarrollado, mostrando mis habilidades en la creación de interfaces de usuario responsivas y dinámicas."}
               
             </motion.p>
           </div>
